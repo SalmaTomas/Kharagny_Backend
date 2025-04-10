@@ -23,9 +23,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var port = Environment.GetEnvironmentVariable("PORT") ?? "5000"; // Default to 5000 if no PORT is found
+//var port = Environment.GetEnvironmentVariable("PORT") ?? "5000"; // Default to 5000 if no PORT is found
 
-builder.WebHost.UseUrls($"http://*:{port}");
+//builder.WebHost.UseUrls($"http://*:{port}");
 
 var app = builder.Build();
 StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
@@ -36,8 +36,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseSwagger();
-app.UseSwaggerUI();
+//app.UseSwagger();
+//app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
